@@ -11,7 +11,7 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -21,7 +21,7 @@
       "executablePath": "dotnet.exe",
       "workingDirectory": "$(ProjectDir)",
       "commandLineArgs": "watch run",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "http://localhost:5000/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
