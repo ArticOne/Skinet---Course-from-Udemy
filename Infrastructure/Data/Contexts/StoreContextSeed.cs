@@ -12,7 +12,7 @@ namespace Infrastructure.Data.Contexts
 {
    public class StoreContextSeed
     {
-        public static async Task SeedAsync(StoreContext context, ILoggerFactory loggerFactory)
+        public static async Task SeedAsync(IStoreContext context, ILoggerFactory loggerFactory)
         {
             try
             {
