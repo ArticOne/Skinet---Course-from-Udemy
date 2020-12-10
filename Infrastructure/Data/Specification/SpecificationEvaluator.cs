@@ -15,9 +15,25 @@ namespace Infrastructure.Data.Specification
         {
             var query = inputQuery;
 
-            if (spec.Criteria != null)
+            if (spec.Criteria != null) // Filteruj
             {
                 query = query.Where(spec.Criteria);
+            }
+
+
+            if (spec.OrderBy != null) // Sortiraj
+            {
+                query = query.OrderBy(spec.OrderBy);
+            }
+            if (spec.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(spec.OrderByDescending);
+            }
+
+
+            if (spec.IsPagingEnabled) // "Paging"
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
             }
 
             query = spec.Includes.Aggregate(query, (current, include) => current.Include(include));
