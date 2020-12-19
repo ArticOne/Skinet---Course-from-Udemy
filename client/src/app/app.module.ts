@@ -10,6 +10,8 @@ import { ShopModule } from './shop/shop.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,6 +22,7 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
     CoreModule,
     SharedModule,
     HomeModule,
+    NgxSpinnerModule
   ],
   providers: [
     {
@@ -27,6 +30,11 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
       useClass: ErrorInterceptor,
       multi: true,
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent],
 })
