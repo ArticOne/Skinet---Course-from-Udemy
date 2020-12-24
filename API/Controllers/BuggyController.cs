@@ -1,5 +1,6 @@
 ﻿using API.Errors;
 using Infrastructure.Data.Contexts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,13 @@ namespace API.Controllers
         public ActionResult GetValidationError(int id)
         {
             return Ok();
+        }
+
+        [HttpGet("testauth")]
+        [Authorize]
+        public ActionResult<string> GetSecretText()
+        {
+            return "secret stuff";
         }
     }
 }
